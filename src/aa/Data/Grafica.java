@@ -64,10 +64,14 @@ public class Grafica {
         render.setSeriesPaint(0, Color.blue);
         render.setSeriesPaint(1, Color.red);
         render.setSeriesPaint(2, Color.green);
+        render.setSeriesPaint(3, Color.orange);
+        render.setSeriesPaint(4, Color.black);
         
         render.setSeriesStroke(0, new BasicStroke(1.0f));
         render.setSeriesStroke(1, new BasicStroke(1.0f));
         render.setSeriesStroke(2, new BasicStroke(1.0f));
+        render.setSeriesStroke(3, new BasicStroke(1.0f));
+        render.setSeriesStroke(4, new BasicStroke(1.0f));
         
         plot.setRenderer(render);
     }

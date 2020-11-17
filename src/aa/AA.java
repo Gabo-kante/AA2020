@@ -9,10 +9,13 @@ import aa.Data.Grafica;
 import aa.Ordenamiento.Burbuja;
 import aa.Ordenamiento.InsertSort;
 import aa.Ordenamiento.MergeSort;
+import aa.Ordenamiento.QuickSort;
+import aa.Ordenamiento.BurbujaOptimizada;
 import Recursivo.Fibonacci;
 import Busquedas.BusquedaSecuencial;
 import Busquedas.Busquedas;
 import Busquedas.GeneradorDatos;
+import java.util.Arrays;
 /**
  *
  * @author Gabriel
@@ -25,44 +28,66 @@ public class AA {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        int n = 20000;
+        int n = 1000;
         int[] aux;
 
         double[] tiempos = new double[n];//burbuja
-        double[] tiempos2 = new double[n];//inser sort
-        double[] tiempos3 = new double[n];// merge sort
+        double[] tiempos1 = new double[n];//inser sort
+        double[] tiempos2 = new double[n];// merge sort
+        double[] tiempos3 = new double[n];//burbuja Optimizada
+        double[] tiempos4 = new double[n];//inser sort
+        
+        
         
         Burbuja b = new Burbuja();
+        
+        BurbujaOptimizada b2 = new BurbujaOptimizada();
         
         InsertSort in = new InsertSort();
         
         MergeSort ms = new MergeSort();
-
-       
+        
+        QuickSort qs = new QuickSort();
+        
         // complejidad algoritmica Sumatoria ( Generar los datos aleatorios + busqueda + almacenar el tiempo)
         for (int j = 0; j < n; j++){
             aux = GeneradorDatos.generarArregloPeor(j);
             b.ordenar(aux);
             tiempos[j] = (int) b.gettTotal();
             System.out.println();
-        }  
+        } 
+        for (int j = 0; j < n; j++){
+            aux = GeneradorDatos.generarArregloPeor(j);
+            b2.ordenarBop(aux);
+            tiempos3[j] = (int) b2.gettTotal();
+            System.out.println();
+        }
         for (int j = 0; j < n; j++){
             aux = GeneradorDatos.generarArregloPeor(j);
             in.ordenarInSert(aux);
-            tiempos2[j] = (int) in.gettTotal();
+            tiempos1[j] = (int) in.gettTotal();
             System.out.println();
         }  
         for (int j = 0; j < n; j++){
             aux = GeneradorDatos.generarArregloPeor(j);
             ms.OrdenarMergeSort(aux);
-            tiempos3[j] = (int) ms.gettTotal();
+            tiempos2[j] = (int) ms.gettTotal();
             System.out.println();
         } 
+        for (int j = 0; j < n; j++){
+            aux = GeneradorDatos.generarArregloPeor(j);
+            qs.ordenarQS(aux);
+            tiempos4[j] = (int) qs.gettTotal();
+            System.out.println();
+        }
         System.out.println();
         Grafica g1 = new Grafica("N","Tiempo","Tiempos");
         g1.agregarSerie("burbuja",tiempos);
+        g1.agregarSerie("BurbujaOP",tiempos1);
         g1.agregarSerie("Insert",tiempos2);
         g1.agregarSerie("Merge",tiempos3);
+        g1.agregarSerie("Quick",tiempos4);
+        //
         g1.crearGrafica();
         g1.muestraGrafica();
     }   
