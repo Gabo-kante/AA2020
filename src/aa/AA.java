@@ -53,28 +53,28 @@ public class AA {
 //        QuickSort qs = new QuickSort();
         
 //         complejidad algoritmica Sumatoria ( Generar los datos aleatorios + busqueda + almacenar el tiempo)
-        for (int j = 0; j < n; j++){
+        for (int j = 1; j <=n; j++){
             //aux = GeneradorDatos.generarArregloPeor(j);
-            b.ordenarFiboR(n);
-            tiempos[j] = (int) b.gettTotal();
+            b.ordenarFiboR(j);
+            tiempos[j-1] = (int) b.gettTotal();
             System.out.println();
         }
-        for (int j = 0; j < n; j++){
+        for (int j = 1; j <=n; j++){
             //aux = GeneradorDatos.generarArregloPeor(j);
-            b2.ordenarFiboRD(n);
-            tiempos1[j] = (int) b2.gettTotal();
+            b2.ordenarFiboRD(j);
+            tiempos1[j-1] = (int) b2.gettTotal();
             System.out.println();
         } 
-        for (int j = 0; j < n; j++){
+        for (int j = 1; j <=n; j++){
             //aux = GeneradorDatos.generarArregloPeor(j);
-            b3.ordenarFiboNR(n);
-            tiempos2[j] = (int) b3.gettTotal();
+            b3.ordenarFiboNR(j);
+            tiempos2[j-1] = (int) b3.gettTotal();
             System.out.println();
         }
-        for (int j = 0; j < n; j++){
+        for (int j = 1; j <=n; j++){
             //aux = GeneradorDatos.generarArregloPeor(j);
-            b4.ordenarFiboNRD(n);
-            tiempos3[j] = (int) b4.gettTotal();
+            b4.ordenarFiboNRD(j);
+            tiempos3[j-1] = (int) b4.gettTotal();
             System.out.println();
         }
 //        for (int j = 0; j < n; j++){
