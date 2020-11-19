@@ -28,65 +28,68 @@ public class AA {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        int n = 1000;
-        int[] aux;
+        int n = 20;
+        //int[] aux;
 
-        double[] tiempos = new double[n];//burbuja
-        double[] tiempos1 = new double[n];//inser sort
-        double[] tiempos2 = new double[n];// merge sort
-        double[] tiempos3 = new double[n];//burbuja Optimizada
-        double[] tiempos4 = new double[n];//Quick sort
+        double[] tiempos = new double[n];//burbuja//recursivo
+        double[] tiempos1 = new double[n];//inser sort//recursivoDinamico
+        double[] tiempos2 = new double[n];// merge sort//Iterativo
+        double[] tiempos3 = new double[n];//burbuja Optimizada//IterativoDinamico
+        //double[] tiempos4 = new double[n];//Quick sort
+                
         
-        
-        
-        Burbuja b = new Burbuja();
-        
-        InsertSort in = new InsertSort();
-        
-        MergeSort ms = new MergeSort();
-        
-        BurbujaOptimizada b2 = new BurbujaOptimizada();
-        
-        QuickSort qs = new QuickSort();
+        Fibonacci b = new Fibonacci ();
+        Fibonacci b2 = new Fibonacci ();
+        Fibonacci b3 = new Fibonacci ();
+        Fibonacci b4 = new Fibonacci ();
+//        Burbuja b = new Burbuja();
+//        
+//        InsertSort in = new InsertSort();
+//        
+//        MergeSort ms = new MergeSort();
+//        
+//        BurbujaOptimizada b2 = new BurbujaOptimizada();
+//        
+//        QuickSort qs = new QuickSort();
         
 //         complejidad algoritmica Sumatoria ( Generar los datos aleatorios + busqueda + almacenar el tiempo)
         for (int j = 0; j < n; j++){
-            aux = GeneradorDatos.generarArregloPeor(j);
-            b.ordenar(aux);
+            //aux = GeneradorDatos.generarArregloPeor(j);
+            b.ordenarFiboR(n);
             tiempos[j] = (int) b.gettTotal();
             System.out.println();
         }
         for (int j = 0; j < n; j++){
-            aux = GeneradorDatos.generarArregloPeor(j);
-            in.ordenarInSert(aux);
-            tiempos1[j] = (int) in.gettTotal();
+            //aux = GeneradorDatos.generarArregloPeor(j);
+            b2.ordenarFiboRD(n);
+            tiempos1[j] = (int) b2.gettTotal();
             System.out.println();
         } 
         for (int j = 0; j < n; j++){
-            aux = GeneradorDatos.generarArregloPeor(j);
-            ms.OrdenarMergeSort(aux);
-            tiempos2[j] = (int) ms.gettTotal();
+            //aux = GeneradorDatos.generarArregloPeor(j);
+            b3.ordenarFiboNR(n);
+            tiempos2[j] = (int) b3.gettTotal();
             System.out.println();
         }
         for (int j = 0; j < n; j++){
-            aux = GeneradorDatos.generarArregloPeor(j);
-            b2.ordenarBop(aux);
-            tiempos3[j] = (int) b2.gettTotal();
+            //aux = GeneradorDatos.generarArregloPeor(j);
+            b4.ordenarFiboNRD(n);
+            tiempos3[j] = (int) b4.gettTotal();
             System.out.println();
         }
-        for (int j = 0; j < n; j++){
-            aux = GeneradorDatos.generarArregloPeor(j);
-            qs.ordenarQS(aux);
-            tiempos4[j] = (int) qs.gettTotal();
-            System.out.println();
-        }
+//        for (int j = 0; j < n; j++){
+//            aux = GeneradorDatos.generarArregloPeor(j);
+//            qs.ordenarQS(aux);
+//            tiempos4[j] = (int) qs.gettTotal();
+//            System.out.println();
+//        }
         System.out.println();
-        Grafica g1 = new Grafica("N","Tiempo","Peor");
-        g1.agregarSerie("burbuja",tiempos);
-        g1.agregarSerie("Insert",tiempos1);
-        g1.agregarSerie("Merge",tiempos2);
-        g1.agregarSerie("BurbujaOp",tiempos3);
-        g1.agregarSerie("Quick",tiempos4);
+        Grafica g1 = new Grafica("N","Tiempo","Tiempos");
+        g1.agregarSerie("Recursivo",tiempos);
+        g1.agregarSerie("Recursivo Dina",tiempos1);
+        g1.agregarSerie("Iterativo",tiempos2);
+        g1.agregarSerie("Iterativo Dina",tiempos3);
+        //g1.agregarSerie("Quick",tiempos4);
         
         g1.crearGrafica();
         g1.muestraGrafica();
