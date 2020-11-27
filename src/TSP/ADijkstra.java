@@ -51,7 +51,7 @@ public class ADijkstra {
            }
          
          }
-        // agregmos al camino la ciudad con distancia menor 
+        // agregamos al camino la ciudad con distancia menor 
         caminoSolucion.agregarCiudad(this.ciudadesDisponibles.get(iM));
         // eliminamos de las ciudades disponibles 
         this.ciudadesDisponibles.remove(iM);

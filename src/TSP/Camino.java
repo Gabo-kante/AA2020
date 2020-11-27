@@ -36,11 +36,7 @@ public class Camino {
      this.getCamino().add(numCiudad);
      // reecalcular la distancia total recorrida
      this.distanciaRecorrida += this.md[cUltima][numCiudad];
-        
-        
         }
-        
-        
     }
 
     /**
