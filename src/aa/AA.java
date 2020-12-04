@@ -5,6 +5,9 @@
  */
 package aa;
 
+import Mochila.Articulo;
+import Mochila.LeerDatos;
+import java.util.ArrayList;
 import aa.Data.Grafica;
 import aa.Ordenamiento.Burbuja;
 import aa.Ordenamiento.InsertSort;
@@ -17,6 +20,7 @@ import Recursivo.Fibonacci;
 import Busquedas.BusquedaSecuencial;
 import Busquedas.Busquedas;
 import Busquedas.GeneradorDatos;
+import java.io.IOException;
 import java.util.Arrays;
 /**
  *
@@ -27,10 +31,9 @@ public class AA {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         // TODO code application logic here
-        
-        int n = 10000;
+        //int n = 10000;
         //int[] aux;
 
 //        double[] tiempos = new double[n];//burbuja//recursivo
@@ -96,11 +99,19 @@ public class AA {
 //        g1.crearGrafica();
 //        g1.muestraGrafica();
 //    }   
-        ADijkstra aux;
-        for (int x=0 ; x < 5;x++){
-        aux = new ADijkstra(5);
-        Camino c = aux.buscarCamino(x);
-        System.out.println("Ci= "+x+" Distancia Total: "+c.getDistanciaRecorrida());
+//        ADijkstra aux;
+//        for (int x=0 ; x < 5;x++){
+//        aux = new ADijkstra(5);
+//        Camino c = aux.buscarCamino(x);
+//        System.out.println("Ciudad= "+x+" Distancia Total: "+c.getDistanciaRecorrida());
+//    }
+//    int tam=50;
+//    int lim=50;
+//    ArrayList<int[]>datos=Tokenizador.tokenizar(lim, tam);
+//    ArrayList<Integer>respuesta=Mochila.llenarMochila(100, datos.get(0), datos.get(1));
+//    System.out.println("Objetos en la mochila ");
+//        for (int i = 0; i < respuesta.size(); i++) {
+//            System.out.println(respuesta.get(i)+"");
+//        }
     }
-}
 }
