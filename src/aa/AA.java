@@ -5,6 +5,7 @@
  */
 package aa;
 
+import ProblemaCaballo.ProblemaCaballo;
 import Mochila.Articulo;
 import Mochila.LeerDatos;
 import java.util.ArrayList;

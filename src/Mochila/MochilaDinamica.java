@@ -80,7 +80,7 @@ public class MochilaDinamica {
 
         int i = this.articulos.size();
         int j = this._W;
-        //int pesoT = 0;
+        int pesoT = 0;
         //Imprimimos la matriz resuelta
         System.out.println("Matriz de Beneficios");
         for (int k = 1; k < i + 1; k++) {
@@ -89,8 +89,28 @@ public class MochilaDinamica {
             }
             System.out.println();
         }
-
-
+            System.out.println("Solucion:");
+           
+       while (i > 0 && j > 0){       //calculamos los articulos utilizados para el mejor beneficio
+           double val = this.mBeneficios[i][j];
+          
+          if( val != this.mBeneficios[i-1][j]){
+              pesoT += this.articulos.get(i-1).getPeso();
+              this.artSolucion.add(this.articulos.get(i-1));                                                            
+              int aux =this.articulos.get(i-1).getValor();   // imprimir el articulo
+              System.out.println(aux);
+              i--;
+              j = j - this.articulos.get(i).getPeso();
+          } 
+          
+          else {
+            i--;
+          }
+                   
+       }       
+           
+       //System.out.println("Peso total: "+pesoT+" de "+this._W);
+        System.out.println("Beneficio total: "+this.mBeneficios[this.articulos.size()][this._W]);
     }
 
    
@@ -104,7 +124,7 @@ public class MochilaDinamica {
         MochilaDinamica m = new MochilaDinamica(articulos, 15); //Mochila(articulos,tamaño _W).
         m.imprimirArticulos();
         m.buscarSolucion();
-
+        
     }
 
 }
